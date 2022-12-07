@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "OxzQoLsA6uivl4VYcAQoY2G4Yd+K9qB1VUc+nmnZrfvGGw4QjErKHJe0uyLMWcLN1iQ/Rr9mRTAyvQIgBz9vCA==",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\LifesBook\\LifesBook.Backend.Application\\LifesBook.Backend.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\GonzaloMartinezRomer\\.nuget\\packages\\fluentvalidation\\11.4.0\\fluentvalidation.11.4.0.nupkg.sha512",
+    "C:\\Users\\GonzaloMartinezRomer\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
+    "C:\\Users\\GonzaloMartinezRomer\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
+    "C:\\Users\\GonzaloMartinezRomer\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\GonzaloMartinezRomer\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\GonzaloMartinezRomer\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\GonzaloMartinezRomer\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

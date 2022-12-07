@@ -1,0 +1,17 @@
+C:\Projects\LifesBook\LifesBook.Backend.Application\bin\Debug\net6.0\LifesBook.Backend.Application.deps.json
+C:\Projects\LifesBook\LifesBook.Backend.Application\bin\Debug\net6.0\LifesBook.Backend.Application.dll
+C:\Projects\LifesBook\LifesBook.Backend.Application\bin\Debug\net6.0\LifesBook.Backend.Application.pdb
+C:\Projects\LifesBook\LifesBook.Backend.Application\bin\Debug\net6.0\LifesBook.Backend.Infraestructure.dll
+C:\Projects\LifesBook\LifesBook.Backend.Application\bin\Debug\net6.0\LifesBook.Backend.Model.dll
+C:\Projects\LifesBook\LifesBook.Backend.Application\bin\Debug\net6.0\LifesBook.Backend.Infraestructure.pdb
+C:\Projects\LifesBook\LifesBook.Backend.Application\bin\Debug\net6.0\LifesBook.Backend.Model.pdb
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.csproj.AssemblyReference.cache
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.AssemblyInfoInputs.cache
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.AssemblyInfo.cs
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.csproj.CoreCompileInputs.cache
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.csproj.CopyComplete
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.dll
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\refint\LifesBook.Backend.Application.dll
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\LifesBook.Backend.Application.pdb
+C:\Projects\LifesBook\LifesBook.Backend.Application\obj\Debug\net6.0\ref\LifesBook.Backend.Application.dll
