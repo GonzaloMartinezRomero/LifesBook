@@ -8,11 +8,11 @@ namespace LifesBook.Backend.Application
 {
     public static class Startup
     {
-        public static IServiceCollection AddHistoryManagerApplication(this IServiceCollection service, IConfiguration configuration)
+        public static IServiceCollection AddHistoryManagerApplication(this IServiceCollection service)
         {
             service.AddHistoryPersistence();
             service.AddHistorySecurity();
-            service.AddTransient<IHistoryManager, HistoryManager>();
+            service.AddScoped<IHistoryManager, HistoryManager>();
 
             return service;
         }

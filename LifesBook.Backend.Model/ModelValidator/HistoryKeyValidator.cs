@@ -14,12 +14,18 @@ namespace LifesBook.Backend.Application.Tool
 
         private HistoryKeyValidator()
         {
-            BuildKeyLengthConfiguration();
+            RulesConfiguration();
         }
 
-        public static ValidationResult CheckHistoryKey(HistoryKey historyKey) => new HistoryKeyValidator().Validate(historyKey);
+        public static void ValidateHistoryKey(HistoryKey historyKey)
+        {
+            var validator = new HistoryKeyValidator().Validate(historyKey);
 
-        private void BuildKeyLengthConfiguration()
+            if (!validator.IsValid)
+                throw new ArgumentException(String.Join(";", validator.Errors.Select(x => x.ErrorMessage)));
+        } 
+
+        private void RulesConfiguration()
         {
             RuleFor(historyKey => historyKey.Key).MinimumLength(MIN_LENGTH_CHARACTER)
                                                  .WithMessage(MinLenghtMessage)

@@ -11,6 +11,27 @@ namespace LifesBook.Backend.Infraestructure.Service.Persistence.Abstract
         /// <param name="password"></param>
         /// <param name="content"></param>
         /// <returns></returns>
-        public void SaveHistory(DirectoryInfo path, DateTime date, HistoryKey password, string content);
+        public History SaveHistory(HistoryKey password, History history, bool overwrite = false);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="password"></param>
+        public History LoadHistory(HistoryKey password, string historyId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="directoryContainer"></param>
+        /// <param name="historyKey"></param>
+        /// <returns></returns>
+        public List<History> LoadAllHistories(HistoryKey historyKey);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="historyId"></param>
+        public void DeleteHistory(string historyId);
     }
 }

@@ -1,5 +1,6 @@
 using LifesBook.Backend.Application.Service.HistoryManager.Abstract;
 using LifesBook.Backend.Model;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,50 +20,118 @@ namespace LifesBookBackend.Controllers
         }
 
         [HttpGet()]
-        public void ListAllHistories()
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<History>))]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult ListAllHistories([Required][FromHeader] string key)
         {
-
+            try
+            {
+                List<History> histories = _historyManager.LoadAllHistories(key);
+                return Ok(histories);
+            }
+            catch (KeyNotFoundException errorKey)
+            {
+                return StatusCode(StatusCodes.Status409Conflict, errorKey.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
         }
 
-        [HttpGet("Open")]
-        public string OpenHistory([Required] [FromQuery] DateTime date)
+        [HttpGet("{historyId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(History))]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult LoadHistory([Required]string historyId, 
+                                         [Required][FromHeader]string key)
         {
-            return "asdfasdfad";
+            try
+            {   
+                History history = _historyManager.LoadHistory(key, historyId);
+
+                return Ok(history);
+            }
+            catch (KeyNotFoundException errorKey)
+            {
+                return StatusCode(StatusCodes.Status409Conflict, errorKey.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
         }
 
         /// <summary>
-        /// 
+        /// Create a new history
         /// </summary>
         /// <param name="key"></param>
         /// <param name="date"></param>
         /// <param name="history"></param>
         /// <returns></returns>
         [HttpPost()]
+        [ProducesResponseType(StatusCodes.Status201Created,Type = typeof(History))]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult WriteHistory([Required][FromHeader(Name ="Key")] string key, 
                                           [Required][FromQuery] DateTime date,
-                                          [FromBody] string history)
+                                          [FromBody] string historyContent)
         {
             try
             {
-                HistoryKey historyKey = new HistoryKey(key);
-
-                _historyManager.SaveHistory(date, historyKey, history);
-                return Ok();
+                History history = _historyManager.SaveHistory(date, key, historyContent);
+                return StatusCode(StatusCodes.Status201Created, history);
             }            
-            catch(ArgumentException argExcept)
+            catch(KeyNotFoundException errorKey)
             {
-                return UnprocessableEntity(argExcept.Message);
+                return StatusCode(StatusCodes.Status409Conflict, errorKey.Message);
             }
             catch (Exception e)
             {
-                return StatusCode(500, e.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
 
-        [HttpDelete()]
-        public void DeleteHistory()
+        [HttpPut("{historyId}")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(History))]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult UpdateHistory([Required][FromHeader(Name = "Key")] string key,
+                                          [Required] string historyId,
+                                          [FromBody] string historyContent)
         {
+            try
+            {
+                History history = _historyManager.UpdateHistory(historyId, key, historyContent);
+                return StatusCode(StatusCodes.Status201Created, history);
+            }
+            catch (KeyNotFoundException errorKey)
+            {
+                return StatusCode(StatusCodes.Status409Conflict, errorKey.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
 
+        [HttpDelete("{historyId}")]
+        public IActionResult DeleteHistory(string historyId)
+        {
+            try
+            {
+                _historyManager.DeleteHistory(historyId);
+                return StatusCode(StatusCodes.Status200OK);
+            }
+            catch (KeyNotFoundException errorKey)
+            {
+                return StatusCode(StatusCodes.Status409Conflict, errorKey.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
         }
     }
 }

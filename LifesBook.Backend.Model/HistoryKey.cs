@@ -1,4 +1,6 @@
-﻿namespace LifesBook.Backend.Model
+﻿using LifesBook.Backend.Application.Tool;
+
+namespace LifesBook.Backend.Model
 {
     public class HistoryKey
     {
@@ -8,7 +10,9 @@
 
         public HistoryKey(string key)
         {
-            Key= key;   
+            Key = key;
+
+            HistoryKeyValidator.ValidateHistoryKey(this);
         }
     }
 }

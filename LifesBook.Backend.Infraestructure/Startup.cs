@@ -10,13 +10,13 @@ namespace LifesBook.Backend.Infraestructure
     {
         public static IServiceCollection AddHistorySecurity(this IServiceCollection services)
         {
-            services.AddTransient<IHistorySecurity, HistorySecurity>();
+            services.AddScoped<IHistorySecurity, HistorySecurity>();
             return services;
         }
 
         public static IServiceCollection AddHistoryPersistence(this IServiceCollection services)
         {
-            services.AddTransient<IHistoryPersistence, HistoryFilePersistence>();
+            services.AddScoped<IHistoryPersistence, HistoryFilePersistence>();
             return services;
         }
     }

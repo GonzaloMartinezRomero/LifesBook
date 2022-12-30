@@ -11,7 +11,7 @@ namespace LifesBook.Backend.Infraestructure.Service.Security.Implementation
         public string Encrypt(string password, string text)
         {
             Aes aes = BuildAes(password);
-            byte[] base64Encrypted = aes.EncryptEcb(Configuration.FileEncoding.GetBytes(text),
+            byte[] base64Encrypted = aes.EncryptEcb(ConfigurationValue.FileEncoding.GetBytes(text),
                                                     PaddingMode.PKCS7);//Encrypt in Base64 array
 
             return Convert.ToBase64String(base64Encrypted);
@@ -24,7 +24,7 @@ namespace LifesBook.Backend.Infraestructure.Service.Security.Implementation
             byte[] bytesText = Convert.FromBase64String(text);
 
             var decrypted = aes.DecryptEcb(bytesText, PaddingMode.PKCS7); //Text saved as byte array in UTF8
-            var plain = Configuration.FileEncoding.GetString(decrypted);
+            var plain = ConfigurationValue.FileEncoding.GetString(decrypted);
 
             return plain;
         }
@@ -33,7 +33,7 @@ namespace LifesBook.Backend.Infraestructure.Service.Security.Implementation
         {
             using SHA256 sha256 = SHA256.Create();
 
-            byte[] bytes = Configuration.FileEncoding.GetBytes(password);
+            byte[] bytes = ConfigurationValue.FileEncoding.GetBytes(password);
 
             byte[] hashBytes = sha256.ComputeHash(bytes); //Note: Not produce a UTF-8 Enconding, just transform from B64
 
@@ -57,7 +57,7 @@ namespace LifesBook.Backend.Infraestructure.Service.Security.Implementation
             else
                 normalizedPassword = password.PadRight(PASSWORD_BLOQ_SIZE, EMPTY_BLOQ_CHARACTER); //Refill if has less than 16
 
-            byte[] keyBytes = Configuration.FileEncoding.GetBytes(normalizedPassword);
+            byte[] keyBytes = ConfigurationValue.FileEncoding.GetBytes(normalizedPassword);
 
             aes.Key = keyBytes;
 

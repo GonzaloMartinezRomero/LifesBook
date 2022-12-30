@@ -10,7 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Services
-builder.Services.AddHistoryManagerApplication(builder.Configuration);
+builder.Services.AddHistoryManagerApplication();
 
 
 var app = builder.Build();
