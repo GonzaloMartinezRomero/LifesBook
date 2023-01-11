@@ -1,0 +1,23 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.history-title {
+    font-size: 35px; 
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: bisque;
+}
+
+.history-content  {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: black !important;
+    border-style: solid !important;
+    resize: none;    
+}
+
+.back-image {
+    background-image: url(../../resources/mainImage.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;   
+  }

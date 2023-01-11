@@ -54,7 +54,7 @@ namespace LifesBook.Backend.Application.Service.HistoryManager.Implementation
             CheckKeyRegistered(historyKey);
 
             List<History> historyList = _historyPersistence.LoadAllHistories(historyKey)
-                                                           .OrderByDescending(x=>x.Date)
+                                                           .OrderBy(x=>x.Date)
                                                            .ToList();
 
             return historyList;

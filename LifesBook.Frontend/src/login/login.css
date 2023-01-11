@@ -1,0 +1,14 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.login-title {
+    font-size: 35px; 
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: bisque;
+}
+
+.back-image {
+    background-image: url(../../resources/mainImage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    image-rendering: optimizeQuality;
+  }

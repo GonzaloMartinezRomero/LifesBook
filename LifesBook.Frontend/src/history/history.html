@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<title>Life's Book</title>
+<meta charset='utf-8'>
+<link rel='stylesheet' href='history.css'>
+<script src='history.js'></script>
+</head>
+<body class="back-image">
+<div class="container-fluid mt-2" style="width: 1200px; height: 750px;">
+   <div class="row">
+    <div class="col-9 ">
+        <div class="row ">
+            <div class="form-group text-center"">
+                <h4 id ="historyTitle" class="card-title history-title">No History</h4>                
+                <textarea id="historyContent" class="form-control history-content" rows="20" style="opacity:0.90;"></textarea>
+            </div>
+        </div>
+        <div class="row text-center mt-4">
+            <div class="col">
+                <button class="btn btn-primary" style="width: 120px; height: 50px;">New</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-danger" style="width: 120px; height: 50px;">Delete</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" style="width: 120px; height: 50px;">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <h4 class="history-title text-center">Histories</h4>              
+        <div id="historyList" class="list-group text-center" style="overflow-y: scroll; height: 620px; opacity:0.90;">                     
+            <!--<button class="list-group-item list-group-item-action">02/08/19</button>-->
+          </div>
+        </div>
+   </div>
+</div>    
+</body>
+<div class="modal fade" id="messagePopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="messageError"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
