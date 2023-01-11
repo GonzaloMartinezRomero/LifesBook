@@ -23,7 +23,7 @@ namespace LifesBookBackend.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<History>))]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult ListAllHistories([Required][FromHeader] string key)
+        public IActionResult ListAllHistories([Required][FromHeader(Name = "Key")] string key)
         {
             try
             {
@@ -31,6 +31,10 @@ namespace LifesBookBackend.Controllers
                 return Ok(histories);
             }
             catch (KeyNotFoundException errorKey)
+            {
+                return StatusCode(StatusCodes.Status409Conflict, errorKey.Message);
+            }
+            catch (ArgumentException errorKey)
             {
                 return StatusCode(StatusCodes.Status409Conflict, errorKey.Message);
             }
@@ -45,7 +49,7 @@ namespace LifesBookBackend.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult LoadHistory([Required]string historyId, 
-                                         [Required][FromHeader]string key)
+                                         [Required][FromHeader(Name = "Key")] string key)
         {
             try
             {   
@@ -74,7 +78,7 @@ namespace LifesBookBackend.Controllers
         [ProducesResponseType(StatusCodes.Status201Created,Type = typeof(History))]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult WriteHistory([Required][FromHeader(Name ="Key")] string key, 
+        public IActionResult WriteHistory([Required][FromHeader(Name = "Key")] string key, 
                                           [Required][FromQuery] DateTime date,
                                           [FromBody] string historyContent)
         {

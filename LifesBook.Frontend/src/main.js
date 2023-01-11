@@ -2,6 +2,7 @@ const {app, BrowserWindow, ipcMain} = require('electron');
 
 let historyWindow = null;
 let loginWindow = null;
+let alertWindow = null;
  
 app.on('ready',()=>{
     
@@ -13,8 +14,8 @@ app.on('ready',()=>{
       },
       width: 1250,
       height: 850,
-      //resizable:false,      
-      //autoHideMenuBar: true
+      resizable:false,      
+      autoHideMenuBar: true
     });
 
     historyWindow.loadFile(__dirname + '/history/history.html');
@@ -54,3 +55,36 @@ ipcMain.on('load-histories-window',(event,data)=>{
 
   historyWindow.webContents.send('catch-key',data);     
 });
+
+ipcMain.on('alert-message',(event,data)=>{      
+
+  alertWindow = new BrowserWindow({
+    show: false,
+    webPreferences:{
+      nodeIntegration: true,
+      contextIsolation:false
+    },
+    width: 400,
+    height: 200,
+    parent: historyWindow,
+    alwaysOnTop:true,
+    modal:true,    
+    resizable:false,      
+    autoHideMenuBar: true
+  });
+
+  alertWindow.loadFile(__dirname + '/alert/alert.html');
+
+  alertWindow.on('closed',()=>{
+    alertWindow = null;
+  }); 
+
+  alertWindow.once('ready-to-show',()=>{
+    
+      alertWindow.webContents.send('alert-initialize',data);  
+      alertWindow.show();
+  });
+
+});
+
+ipcMain.on('close-alert-window',(event,data)=>alertWindow.close());

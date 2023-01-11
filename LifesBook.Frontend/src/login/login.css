@@ -9,6 +9,5 @@
 .back-image {
     background-image: url(../../resources/mainImage.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    image-rendering: optimizeQuality;
+    background-size: cover;    
   }
