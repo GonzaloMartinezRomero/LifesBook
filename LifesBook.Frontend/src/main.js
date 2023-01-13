@@ -13,9 +13,10 @@ app.on('ready',()=>{
         contextIsolation:false
       },
       width: 1250,
-      height: 850,
+      height: 820,
       resizable:false,      
-      autoHideMenuBar: true
+      autoHideMenuBar: true,
+      frame: false
     });
 
     historyWindow.loadFile(__dirname + '/history/history.html');
@@ -27,7 +28,7 @@ app.on('ready',()=>{
     historyWindow.once('ready-to-show',()=>{
 
           loginWindow = new BrowserWindow({
-            height:300,
+            height:270,
             width:400,              
             resizable: false,
             parent: historyWindow,
@@ -35,7 +36,8 @@ app.on('ready',()=>{
               nodeIntegration: true,              
               contextIsolation: false
             },
-            autoHideMenuBar: true               
+            autoHideMenuBar: true,
+            frame: false               
           });
 
           loginWindow.loadFile(__dirname + '/login/login.html')  
@@ -70,7 +72,8 @@ ipcMain.on('alert-message',(event,data)=>{
     alwaysOnTop:true,
     modal:true,    
     resizable:false,      
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    frame: false
   });
 
   alertWindow.loadFile(__dirname + '/alert/alert.html');
@@ -88,3 +91,5 @@ ipcMain.on('alert-message',(event,data)=>{
 });
 
 ipcMain.on('close-alert-window',(event,data)=>alertWindow.close());
+
+ipcMain.on('close-application',(event,data)=>app.quit());

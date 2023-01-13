@@ -6,17 +6,20 @@
 <link rel='stylesheet' href='history.css'>
 <script src='history.js'></script>
 </head>
-<body class="back-image">
+<body class="back-image" style="overflow-y: hidden; overflow-x: hidden; -webkit-app-region:drag">
 <div class="container-fluid mt-4" style="width: 1200px; height: 750px;">
    <div class="row">
     <div class="col-9 ">
         <div class="row ">
             <div class="form-group text-center"">
                 <h4 id ="historyTitle" class="card-title history-title">No History</h4>                
-                <textarea id="historyContent" class="form-control history-content mt-2" rows="20" style="opacity:0.90;"></textarea>
+                <textarea id="historyContent" class="form-control history-content mt-2" rows="20" style="opacity:0.90;-webkit-app-region:no-drag"></textarea>
             </div>
         </div>
-        <div class="row text-center mt-4">
+        <div class="row text-center mt-4" style="-webkit-app-region:no-drag">
+            <div class="col">
+                <button class="btn btn-danger" style="width: 120px; height: 50px;" onclick="closeApplication()">Close</button>
+            </div>          
             <div class="col">
                 <button class="btn btn-primary" style="width: 120px; height: 50px;" onclick="newHistory()">New</button>
             </div>          
@@ -27,7 +30,7 @@
     </div>
     <div class="col-3">
         <h4 class="history-title text-center">Histories</h4>              
-        <div id="historyList" class="list-group text-center" style="overflow-y: scroll; height: 620px; opacity:0.90;">                                 
+        <div id="historyList" class="list-group text-center" style="overflow-y: scroll; height: 620px; opacity:0.90; -webkit-app-region:no-drag">                                 
         </div>
         </div>
    </div>

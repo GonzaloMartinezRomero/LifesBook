@@ -28,3 +28,7 @@ function showErrorMessage(){
     document.getElementById('errorTextBox').hidden=false;
     document.getElementById('errorMessage').innerHTML='Password Invalid! Must to be 5-10 Characters';
 }
+
+function closeLogin(){
+    ipcRenderer.send('close-application', '');
+}

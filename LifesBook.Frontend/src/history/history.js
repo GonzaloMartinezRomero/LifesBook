@@ -20,7 +20,7 @@ async function loadAllHistories(){
         },
       };
 
-    historyMap.clear();     
+    resetEnvironment();
 
     await fetch(url,options).then(response => {
       
@@ -50,6 +50,12 @@ async function loadAllHistories(){
         }}).catch(error => showAlertMessage('Request Exception',error));
 }
 
+function resetEnvironment(){
+    historyMap.clear();     
+    selectedHistoryId = "0";
+    document.getElementById('historyContent').readOnly = true;
+}
+
 function addHistoryButton(history){
 
     const historyButton = document.createElement("button");
@@ -64,14 +70,34 @@ function addHistoryButton(history){
 
 function openHistory(id){
 
-    let history = historyMap.get(id);
+    if(existPendingChanges()){        
+        showAlertMessage('History','Changes not saved!');        
+    }else{
+        
+        let history = historyMap.get(id);
 
-    let historyTitle = new Date(history.date).toLocaleDateString("es-ES",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        let historyTitle = new Date(history.date).toLocaleDateString("es-ES",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-    document.getElementById('historyTitle').innerHTML = historyTitle;
-    document.getElementById('historyContent').value = history.content;
+        document.getElementById('historyTitle').innerHTML = historyTitle;
 
-    selectedHistoryId = id;
+        let historyContent =document.getElementById('historyContent');
+        historyContent.value = history.content;
+        historyContent.readOnly = false;
+
+        selectedHistoryId = id;
+    }
+}
+
+function existPendingChanges(){
+
+    if(selectedHistoryId !== "0"){
+        
+        let historyContent = document.getElementById('historyContent').value;
+        let savedContent = historyMap.get(selectedHistoryId).content;
+        return historyContent !== savedContent;
+    }
+
+    return false;
 }
 
 function showAlertMessage(errorSource, message){
@@ -155,4 +181,8 @@ async function saveHistory(){
         }
         
         }).catch(error => showAlertMessage('Request Exception',error));
+}
+
+function closeApplication(){
+    ipcRenderer.send('close-application', '');
 }

@@ -7,8 +7,8 @@
     <script src='login.js'></script>
 </head>
 
-<body class="back-image" style="width: 390px; height: 255px;">
-    <h4 class="login-title text-center m-3">Life's Book</h4>
+<body class="back-image" style="width: 390px; height: 284px; overflow-y: hidden; overflow-x: hidden;">
+    <h4 class="login-title text-center mt-4">Life's Book</h4>
     <div class="text-center">
         <div class="form-row">
             <div class="form-group col m-4" style="opacity: 0.9;">             
@@ -17,10 +17,11 @@
         </div>
         <div class="form-row">
             <div class="form-group">
-                <button class="btn btn-success" onclick="loadHistoriesWindow()">Load Histories</button>
-            </div>
+                <button class="btn btn-danger" style="width: 120px;" onclick="closeLogin()">Close</button>
+                <button class="btn btn-success ms-5 " style="width: 140px;" onclick="loadHistoriesWindow()">Load Histories</button>                
+            </div>            
         </div>        
-        <div class="form-row m-2" id="errorTextBox" hidden>            
+        <div class="form-row m-1" id="errorTextBox" hidden>            
             <h3 class="text-bg-danger" id="errorMessage"></h3>
         </div>        
     </div>
