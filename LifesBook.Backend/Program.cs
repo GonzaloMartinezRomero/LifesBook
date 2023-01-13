@@ -12,6 +12,8 @@ builder.Services.AddSwaggerGen();
 //Services
 builder.Services.AddHistoryManagerApplication();
 
+//Host
+builder.WebHost.UseUrls("https://localhost:7112");
 
 var app = builder.Build();
 
