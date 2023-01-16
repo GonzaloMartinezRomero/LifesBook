@@ -21,3 +21,7 @@
     background-repeat: no-repeat;
     background-size: 100%;   
   }
+
+.button-input:focus {
+    background: rgb(143, 231, 2);
+  }

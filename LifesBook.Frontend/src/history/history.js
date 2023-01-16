@@ -20,12 +20,12 @@ async function loadAllHistories(){
         },
       };
 
-    resetEnvironment();
-
     await fetch(url,options).then(response => {
       
         switch(response.status){
-            case 200:    
+            case 200:                
+                
+                resetEnvironment();
 
                 response.arrayBuffer().then((buffer)=>{
 
@@ -51,20 +51,27 @@ async function loadAllHistories(){
 }
 
 function resetEnvironment(){
+    
     historyMap.clear();     
     selectedHistoryId = "0";
     document.getElementById('historyContent').readOnly = true;
+    
+    let parent =  document.getElementById('historyList');
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 function addHistoryButton(history){
 
     const historyButton = document.createElement("button");
     historyButton.innerHTML = new Date(history.date).toLocaleDateString();
-    historyButton.className = 'list-group-item list-group-item-action';
+    historyButton.className = 'list-group-item list-group-item-action button-input';
     historyButton.addEventListener("click",()=>{
         let id = history.id;
-        openHistory(id);
+        openHistory(id);      
     });
+  
     document.getElementById('historyList').appendChild(historyButton);
 }
 
@@ -184,5 +191,9 @@ async function saveHistory(){
 }
 
 function closeApplication(){
-    ipcRenderer.send('close-application', '');
+    if(existPendingChanges()){
+        showAlertMessage('History','Changes not saved!');        
+    }else{
+        ipcRenderer.send('close-application', '');
+    }
 }

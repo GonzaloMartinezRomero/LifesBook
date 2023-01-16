@@ -261,3 +261,6 @@ __pycache__/
 *.pyc
 HistoryRecord/
 LifesBook.Frontend/out
+Launcher/HistoryContainer/
+Launcher/LifesBook.Back/
+Launcher/LifesBook.Front/
