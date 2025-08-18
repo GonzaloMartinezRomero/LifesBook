@@ -1,0 +1,56 @@
+﻿<Window x:Class="LifesBook.FrontEndWpf.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LifesBook.FrontEndWpf"
+        mc:Ignorable="d"
+        Title="Login" Height="241" Width="478" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None">
+
+    <Grid>
+        <!-- Background -->
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF84EA7C" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Title -->
+        <TextBlock Text="Life's Book"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,20,0,0"
+                   FontSize="48"
+                   FontWeight="Bold"
+                   FontFamily="Freestyle Script"
+                   Foreground="White" Width="322" TextAlignment="Center"/>
+
+        <!-- Content -->
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="200">
+
+            <!-- Password input -->
+            <PasswordBox x:Name="PasswordInput"
+                         FontSize="16"
+                         HorizontalAlignment="Stretch"
+                         Height="35"
+                         Margin="0,0,0,10"
+                         BorderBrush="Black"
+                         VerticalContentAlignment="Center"
+                         KeyDown="PasswordInput_KeyDown"/>
+
+            <!-- Enter button -->
+            <Button x:Name="EnterButton"
+                    Content="Enter"
+                    Height="35"
+                    FontSize="24"
+                    FontFamily="Freestyle Script"
+                    Click="EnterButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
