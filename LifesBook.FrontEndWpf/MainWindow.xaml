@@ -4,8 +4,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Life's Book" Height="748" Width="1380"
-        ResizeMode="NoResize"
+        Title="Life's Book" Height="829" Width="1527"        
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None" >
     <Grid>
         <Grid.Background>
@@ -37,7 +38,7 @@
           TextWrapping="Wrap"
           FontSize="36"
           Text="Muy buenas este es el menaje d d epal jajajajja.  lkasd" 
-          FontFamily="Freestyle Script" Margin="0,1,0,-1" BorderThickness="2,2,2,2" Height="613" BorderBrush="{x:Null}" Width="919" Opacity="0.9" AcceptsTab="True" Foreground="White" ScrollViewer.CanContentScroll="True">
+          FontFamily="Gabriola" Margin="0,1,0,-1" BorderThickness="2,2,2,2" Height="730" BorderBrush="{x:Null}" Width="1066" Opacity="0.9" AcceptsTab="True" Foreground="White" ScrollViewer.CanContentScroll="True">
                     <TextBox.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.995">
                             <GradientStop Color="Black"/>
@@ -71,8 +72,8 @@
                 </Grid.RowDefinitions>
 
                 <!-- List -->
-                <StackPanel Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,30">
-                    <Label Content="Histories" Foreground="#FFF7F7F7" FontWeight="Bold" Opacity="0.9" HorizontalAlignment="Center" FontFamily="Freestyle Script" FontSize="36" Width="233" Height="54" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <StackPanel Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,63">
+                    <Label Content="Histories" Foreground="#FFF7F7F7" FontWeight="Bold" Opacity="0.9" HorizontalAlignment="Center" FontFamily="Freestyle Script" FontSize="36" Width="233" Height="54" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Label.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black"/>
@@ -100,12 +101,12 @@
                 </StackPanel>
 
                 <!-- Buttons -->
-                <StackPanel Grid.Row="2" Orientation="Horizontal"
-                            HorizontalAlignment="Right">
+                <StackPanel Grid.Row="1" Orientation="Horizontal"
+                            HorizontalAlignment="Right" Margin="0,416,0,35">
                     <Button x:Name="CloseButton"
                             Content="Close"
-                           Height="30"
-Width="90" Click="CloseButton_Click" Opacity="0.905" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0">
+                           Height="46"
+Width="106" Click="CloseButton_Click" Opacity="0.905" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,20,0">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF9A3F15"/>
@@ -115,9 +116,9 @@ Width="90" Click="CloseButton_Click" Opacity="0.905" FontWeight="Bold" Horizonta
                     </Button>
                     <Button x:Name="NewButton"
                             Content="New"
-                            Height="30"
-                            Width="90"
-                             Click="NewButton_Click" Opacity="0.9" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0">
+                            Height="46"
+                            Width="106"
+                             Click="NewButton_Click" Opacity="0.9" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,20,0">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black"/>
@@ -125,12 +126,12 @@ Width="90" Click="CloseButton_Click" Opacity="0.905" FontWeight="Bold" Horizonta
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-                
-                  
+
+
                     <Button x:Name="SaveButton"
                             Content="Save"
-                           Height="30"
-Width="90" Click="SaveButton_Click" Opacity="0.905" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,5,0" >
+                           Height="46"
+Width="106" Click="SaveButton_Click" Opacity="0.905" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,5,0" >
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FFA1D051"/>
